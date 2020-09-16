@@ -15,9 +15,13 @@ for (let k in filterObj){
   Vue.filter(k, filterObj[k])
 }
 
-// 给JS里面使用！
-Vue.prototype.$host = "http://localhost:3333"
-
+if (process.env.NODE_ENV =='development'){  // 开发环境！
+  // 给JS里面使用！
+  Vue.prototype.$host = "http://localhost:3333"
+}
+if (process.env.NODE_ENV == 'production') {  // 生成环境！
+  Vue.prototype.$host = ""
+}
 
 Vue.config.productionTip = false
 

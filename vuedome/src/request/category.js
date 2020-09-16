@@ -13,21 +13,21 @@ export async function getCategory() {
 }
 /**
  * 添加分类
-
+ * @param {*} data  添加的数据
  */
 export function addCategory(data){
     return  $axios.post("/cateadd",data)
 }
 /**
  * 修改分类
-
+ * @param {*} data  修改的数据
  */
 export function editCategory(data) {
     return $axios.post("/cateedit", data)
 }
 /**
  * 删除分类
-
+ * @param {*} id  删除的ID
  */
 export function delCategory(id) {
     return $axios.post("/catedelete", {id})
