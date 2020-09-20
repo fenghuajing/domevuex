@@ -40,7 +40,7 @@
 </el-dialog>
 </template>
 <script>
-// 导入  添加和修改的 请求封装方法！
+// 添加和修改的 请求封装方法
 import { addCategory,editCategory } from "@/request/category"
 import { mapGetters,mapActions } from "vuex"
 let defaultItem = {
@@ -70,7 +70,7 @@ export default {
             rules:{  // 验证规则对象！
                 catename:[{required:true,message:"必填！",trigger:'blur'}]
             },
-            filelist:[]  // [{name:'',url:''}]
+            filelist:[]  
         }
     },
     computed: {
@@ -89,10 +89,12 @@ export default {
         }),
         see(file){
             this.dialogVisible = true;
-            this.dialogImageUrl = file.url // JS 生成的预览地址！
+            // JS生成的预览地址
+            this.dialogImageUrl = file.url 
         },
         change(file,fileList){
-            this.forminfo.img = file.raw;  // file.raw 是原生文件信息！
+            // file.raw 是原生文件信息
+            this.forminfo.img = file.raw;  
         },
         remove(file,fileList){
              this.forminfo.img =''
@@ -118,7 +120,8 @@ export default {
                     for(let k in this.forminfo){
                         fd.append(k,this.forminfo[k])
                     }
-                    if(this.info.isAdd){ // 添加还是修改！
+                     // 添加还是修改
+                    if(this.info.isAdd){
                         res = await addCategory(fd);
                     }else{
                         res = await editCategory(fd)

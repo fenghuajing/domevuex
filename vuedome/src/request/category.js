@@ -1,8 +1,6 @@
 import $axios from "@/common/http"  // 导入封装好的axios!
 
-/**
- * 获取分类列表
- */
+// 获取分类
 export async function getCategory() {
     let res = await $axios.get("/catelist?istree=1")
     if(res.code==200 && res.list){
@@ -11,24 +9,15 @@ export async function getCategory() {
         return [];
     }
 }
-/**
- * 添加分类
- * @param {*} data  添加的数据
- */
+// 添加分类
 export function addCategory(data){
     return  $axios.post("/cateadd",data)
 }
-/**
- * 修改分类
- * @param {*} data  修改的数据
- */
+// 修改分类
 export function editCategory(data) {
     return $axios.post("/cateedit", data)
 }
-/**
- * 删除分类
- * @param {*} id  删除的ID
- */
+// 删除分类
 export function delCategory(id) {
     return $axios.post("/catedelete", {id})
 }

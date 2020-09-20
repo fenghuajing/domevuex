@@ -14,7 +14,7 @@ export default {
         }
     },
     actions: {
-        // 请求菜单列表的数据！
+        // 请求菜单列表的数据
         async get_category_list({commit}){
             let res = await getCategory();  
             commit('SET_LIST',res)
