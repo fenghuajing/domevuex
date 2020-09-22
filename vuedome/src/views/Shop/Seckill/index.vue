@@ -1,5 +1,5 @@
 <template>
- <div>秒杀管理</div>
+ <div></div>
 </template>
 
 <script>
